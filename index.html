@@ -3,13 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Commandes Git</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .command {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #f9f9f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .command button {
+            padding: 5px 10px;
+            border: none;
+            background: #007bff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .command button:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <p>
-        Test voir
-    </p>
+    <div class="container">
+        <h1>Commandes Git</h1>
 
-    <i>cool</i>
+        <div class="command">
+            <span>'git init' => Initialise un nouveau dépôt Git</span>
+            <button onclick="copyToClipboard('git init')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git add <fichier>' => Ajoute un fichier spécifique à l'index</span>
+            <button onclick="copyToClipboard('git add <fichier>')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git add .' => Ajoute tous les fichiers du répertoire courant à l'index</span>
+            <button onclick="copyToClipboard('git add .')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git status' => Affiche l'état actuel du dépôt (fichiers modifiés, ajoutés, etc.)</span>
+            <button onclick="copyToClipboard('git status')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git diff' => Affiche les différences entre les fichiers modifiés et l'index</span>
+            <button onclick="copyToClipboard('git diff')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git commit -m "message"' => Crée un commit avec un message</span>
+            <button onclick="copyToClipboard('git commit -m message')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git commit' => Crée un commit (ouvre un éditeur pour le message)</span>
+            <button onclick="copyToClipboard ('git commit') ">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git push -u origin <branche>' => Pousse les commits locaux vers un dépôt distant et définit la branche de suivi</span>
+            <button onclick="copyToClipboard('git push -u origin <branche>')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git pull origin <branche>' => Récupère et fusionne les modifications depuis le dépôt distant</span>
+            <button onclick="copyToClipboard('git pull origin <branche>')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git branch' => Liste les branches locales</span>
+            <button onclick="copyToClipboard('git branch')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git branch <nom_branche>' => Crée une nouvelle branche</span>
+            <button onclick="copyToClipboard('git branch <nom_branche>')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git checkout <nom_branche>' => Change de branche</span>
+            <button onclick="copyToClipboard('git checkout <nom_branche>')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git checkout -b <nom_branche>' => Crée une branche et change dessus</span>
+            <button onclick="copyToClipboard('git checkout -b <nom_branche>')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git log' => Affiche l'historique des commits</span>
+            <button onclick="copyToClipboard('git log')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git log --oneline' => Affiche l'historique des commits en une seule ligne par commit</span>
+            <button onclick="copyToClipboard('git log --oneline')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git remote -v' => Affiche les dépôts distants configurés</span>
+            <button onclick="copyToClipboard('git remote -v')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git clone <url>' => Clone un dépôt distant sur votre machine</span>
+            <button onclick="copyToClipboard('git clone <url>')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git stash' => Sauvegarde les modifications non commités temporairement</span>
+            <button onclick="copyToClipboard('git stash')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git stash apply' => Restaure les modifications sauvegardées par git stash</span>
+            <button onclick="copyToClipboard('git stash apply')">Copier</button>
+        </div>
+
+        <div class="command">
+            <span>'git rm <fichier>' => Supprime un fichier du répertoire de travail et de l'index</span>
+            <button onclick="copyToClipboard('git rm <fichier>')">Copier</button>
+        </div>
+    </div>
+
+    <script>
+        function copyToClipboard(command) {
+            navigator.clipboard.writeText(command).then(() => {
+                alert('Commande copiée : ' + command);
+            }).catch(err => {
+                console.error('Erreur lors de la copie : ', err);
+            });
+        }
+    </script>
 </body>
 </html>
