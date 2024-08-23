@@ -1,162 +1,237 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Commandes Git</title>
+    <title>GitHub Cheat Sheet</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
             background-color: #f4f4f4;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+            margin: 0;
             padding: 20px;
-            background: #fff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         h1 {
+            font-size: 24px;
             text-align: center;
+            color: #333;
         }
-        .command {
-            margin: 15px 0;
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            border-bottom: 2px solid #2980b9;
+            padding-bottom: 5px;
+        }
+
+        .command-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .command-list li {
+            background-color: #ecf0f1;
+            margin: 10px 0;
             padding: 10px;
-            border: 1px solid #ddd;
             border-radius: 5px;
-            background: #f9f9f9;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
-        .command button {
-            padding: 5px 10px;
+
+        .command-list li span {
+            font-family: monospace;
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .command-desc {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .copy-button {
+            background-color: #27ae60;
+            color: white;
             border: none;
-            background: #007bff;
-            color: #fff;
+            padding: 5px 10px;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
-        .command button:hover {
-            background: #0056b3;
+
+        .copy-button:hover {
+            background-color: #2ecc71;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Commandes Git</h1>
+        <h1>GitHub Cheat Sheet</h1>
 
-        <div class="command">
-            <span>'git init' => Initialise un nouveau dépôt Git</span>
-            <button onclick="copyToClipboard('git init')">Copier</button>
+        <div class="section">
+            <h2 class="section-title">Versionner en local</h2>
+            <ul class="command-list">
+                <li>
+                    <span>git init</span>
+                    <button class="copy-button" data-command="git init">Copier</button>
+                    <div class="command-desc">Initialise un nouveau dépôt Git</div>
+                </li>
+                <li>
+                    <span>git add <fichier></span>
+                    <button class="copy-button" data-command="git add <fichier>">Copier</button>
+                    <div class="command-desc">Ajoute un fichier spécifique à l'index</div>
+                </li>
+                <li>
+                    <span>git add .</span>
+                    <button class="copy-button" data-command="git add .">Copier</button>
+                    <div class="command-desc">Ajoute tous les fichiers du répertoire courant à l'index</div>
+                </li>
+                <li>
+                    <span>git status</span>
+                    <button class="copy-button" data-command="git status">Copier</button>
+                    <div class="command-desc">Affiche l'état actuel du dépôt (fichiers modifiés, ajoutés, etc.)</div>
+                </li>
+                <li>
+                    <span>git diff</span>
+                    <button class="copy-button" data-command="git diff">Copier</button>
+                    <div class="command-desc">Affiche les différences entre les fichiers modifiés et l'index</div>
+                </li>
+                <li>
+                    <span>git commit -m "message"</span>
+                    <button class="copy-button" data-command='git commit -m "message"'>Copier</button>
+                    <div class="command-desc">Crée un commit avec un message</div>
+                </li>
+                <li>
+                    <span>git commit</span>
+                    <button class="copy-button" data-command="git commit">Copier</button>
+                    <div class="command-desc">Crée un commit (ouvre un éditeur pour le message)</div>
+                </li>
+            </ul>
         </div>
 
-        <div class="command">
-            <span>'git add <fichier>' => Ajoute un fichier spécifique à l'index</span>
-            <button onclick="copyToClipboard('git add <fichier>')">Copier</button>
+        <div class="section">
+            <h2 class="section-title">Gérer les commits</h2>
+            <ul class="command-list">
+                <li>
+                    <span>git log</span>
+                    <button class="copy-button" data-command="git log">Copier</button>
+                    <div class="command-desc">Affiche l'historique des commits</div>
+                </li>
+                <li>
+                    <span>git log --oneline</span>
+                    <button class="copy-button" data-command="git log --oneline">Copier</button>
+                    <div class="command-desc">Affiche l'historique des commits en une seule ligne par commit</div>
+                </li>
+            </ul>
         </div>
 
-        <div class="command">
-            <span>'git add .' => Ajoute tous les fichiers du répertoire courant à l'index</span>
-            <button onclick="copyToClipboard('git add .')">Copier</button>
+        <div class="section">
+            <h2 class="section-title">Travailler avec les branches</h2>
+            <ul class="command-list">
+                <li>
+                    <span>git branch</span>
+                    <button class="copy-button" data-command="git branch">Copier</button>
+                    <div class="command-desc">Liste les branches locales</div>
+                </li>
+                <li>
+                    <span>git branch <nom_branche></span>
+                    <button class="copy-button" data-command="git branch <nom_branche>">Copier</button>
+                    <div class="command-desc">Crée une nouvelle branche</div>
+                </li>
+                <li>
+                    <span>git checkout <nom_branche></span>
+                    <button class="copy-button" data-command="git checkout <nom_branche>">Copier</button>
+                    <div class="command-desc">Change de branche</div>
+                </li>
+                <li>
+                    <span>git checkout -b <nom_branche></span>
+                    <button class="copy-button" data-command="git checkout -b <nom_branche>">Copier</button>
+                    <div class="command-desc">Crée une branche et change dessus</div>
+                </li>
+            </ul>
         </div>
 
-        <div class="command">
-            <span>'git status' => Affiche l'état actuel du dépôt (fichiers modifiés, ajoutés, etc.)</span>
-            <button onclick="copyToClipboard('git status')">Copier</button>
+        <div class="section">
+            <h2 class="section-title">Versionner sur un dépôt distant</h2>
+            <ul class="command-list">
+                <li>
+                    <span>git remote -v</span>
+                    <button class="copy-button" data-command="git remote -v">Copier</button>
+                    <div class="command-desc">Affiche les dépôts distants configurés</div>
+                </li>
+                <li>
+                    <span>git clone <url></span>
+                    <button class="copy-button" data-command="git clone <url>">Copier</button>
+                    <div class="command-desc">Clone un dépôt distant sur votre machine</div>
+                </li>
+                <li>
+                    <span>git push -u origin <branche></span>
+                    <button class="copy-button" data-command="git push -u origin <branche>">Copier</button>
+                    <div class="command-desc">Pousse les commits locaux vers un dépôt distant et définit la branche de suivi</div>
+                </li>
+                <li>
+                    <span>git pull origin <branche></span>
+                    <button class="copy-button" data-command="git pull origin <branche>">Copier</button>
+                    <div class="command-desc">Récupère et fusionne les modifications depuis le dépôt distant</div>
+                </li>
+            </ul>
         </div>
 
-        <div class="command">
-            <span>'git diff' => Affiche les différences entre les fichiers modifiés et l'index</span>
-            <button onclick="copyToClipboard('git diff')">Copier</button>
+        <div class="section">
+            <h2 class="section-title">Gestion des fichiers et autres</h2>
+            <ul class="command-list">
+                <li>
+                    <span>git stash</span>
+                    <button class="copy-button" data-command="git stash">Copier</button>
+                    <div class="command-desc">Sauvegarde les modifications non commités temporairement</div>
+                </li>
+                <li>
+                    <span>git stash apply</span>
+                    <button class="copy-button" data-command="git stash apply">Copier</button>
+                    <div class="command-desc">Restaure les modifications sauvegardées par git stash</div>
+                </li>
+                <li>
+                    <span>git rm <fichier></span>
+                    <button class="copy-button" data-command="git rm <fichier>">Copier</button>
+                    <div class="command-desc">Supprime un fichier du répertoire de travail et de l'index</div>
+                </li>
+            </ul>
         </div>
 
-        <div class="command">
-            <span>'git commit -m "message"' => Crée un commit avec un message</span>
-            <button onclick="copyToClipboard('git commit -m message')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git commit' => Crée un commit (ouvre un éditeur pour le message)</span>
-            <button onclick="copyToClipboard ('git commit') ">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git push -u origin <branche>' => Pousse les commits locaux vers un dépôt distant et définit la branche de suivi</span>
-            <button onclick="copyToClipboard('git push -u origin <branche>')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git pull origin <branche>' => Récupère et fusionne les modifications depuis le dépôt distant</span>
-            <button onclick="copyToClipboard('git pull origin <branche>')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git branch' => Liste les branches locales</span>
-            <button onclick="copyToClipboard('git branch')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git branch <nom_branche>' => Crée une nouvelle branche</span>
-            <button onclick="copyToClipboard('git branch <nom_branche>')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git checkout <nom_branche>' => Change de branche</span>
-            <button onclick="copyToClipboard('git checkout <nom_branche>')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git checkout -b <nom_branche>' => Crée une branche et change dessus</span>
-            <button onclick="copyToClipboard('git checkout -b <nom_branche>')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git log' => Affiche l'historique des commits</span>
-            <button onclick="copyToClipboard('git log')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git log --oneline' => Affiche l'historique des commits en une seule ligne par commit</span>
-            <button onclick="copyToClipboard('git log --oneline')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git remote -v' => Affiche les dépôts distants configurés</span>
-            <button onclick="copyToClipboard('git remote -v')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git clone <url>' => Clone un dépôt distant sur votre machine</span>
-            <button onclick="copyToClipboard('git clone <url>')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git stash' => Sauvegarde les modifications non commités temporairement</span>
-            <button onclick="copyToClipboard('git stash')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git stash apply' => Restaure les modifications sauvegardées par git stash</span>
-            <button onclick="copyToClipboard('git stash apply')">Copier</button>
-        </div>
-
-        <div class="command">
-            <span>'git rm <fichier>' => Supprime un fichier du répertoire de travail et de l'index</span>
-            <button onclick="copyToClipboard('git rm <fichier>')">Copier</button>
-        </div>
     </div>
 
     <script>
-        function copyToClipboard(command) {
-            navigator.clipboard.writeText(command).then(() => {
-                alert('Commande copiée : ' + command);
-            }).catch(err => {
-                console.error('Erreur lors de la copie : ', err);
+        document.querySelectorAll('.copy-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const command = button.getAttribute('data-command');
+                navigator.clipboard.writeText(command).then(() => {
+                    alert(`Commande copiée: ${command}`);
+                });
             });
-        }
+        });
     </script>
 </body>
+
 </html>
